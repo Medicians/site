@@ -48,7 +48,7 @@ GLOBAL.app = app;
 
 
 app.set('server_url', "http://medicians.org");
-app.set('nserver', "http://localhost:7001");
+app.set('nserver', "http://notifications.medicians.org");
 
 /*
  * URLS
