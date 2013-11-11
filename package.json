@@ -9,6 +9,6 @@
     "express": "*",
     "underscore" : "*",
     "swig" : "*",
-    "nodemailer" : "*"
+    "request" : "*"
   }
 }

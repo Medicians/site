@@ -1,7 +1,3 @@
-var _ = require('underscore');
-
-// notifications.medicians.org
-
 /*
  * GET home page.
  */
@@ -11,11 +7,24 @@ exports.index = function(req, res) {
 };
 
 exports.send_email = function(req, res) {
-	var email = require('../helpers/email');
+	var request = require('request');
 
-	email.send_email(req.body);
+	var sign_logo = app.get('server_url') + '/images/logo_email.png';
 
-	res.json({
-		result: true
+	request.post(app.get('nserver') + '/send_email', {
+		form: {
+			from: 'info@medicians.org',
+			to: 'info@speryans.com',
+			subject: 'Contacto Medicians',
+			title: 'Contacto',
+			name: req.body.name,
+			text: '<p>' + req.body.message + '</p><p>Email: ' + req.body.email + '</p>',
+			sign_name: 'Medicians.org',
+			sign_phone: '',
+			sign_logo: sign_logo,
+			ics: 0
+		}
 	});
+
+	res.render('send', {});
 };

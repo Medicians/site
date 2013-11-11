@@ -21,7 +21,6 @@ app.engine('html', swig.renderFile);
 
 // all environments
 app.set('port', 3000);
-app.set('mailgun_key', 'key-8zq2jnqk5eetkyzqel1qdpwvb51um9a6');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
@@ -48,7 +47,8 @@ if ('development' == app.get('env')) {
 GLOBAL.app = app;
 
 
-app.set('server_url', "http://notifications.medicians.org");
+app.set('server_url', "http://medicians.org");
+app.set('nserver', "http://localhost:7001");
 
 /*
  * URLS
